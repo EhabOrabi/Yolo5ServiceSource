@@ -107,10 +107,11 @@ def consume():
 
                 dynamodb = boto3.resource('dynamodb', region_name=region_name)
                 logger.info({dynamodb})
-                table = dynamodb.Table('ehabo-PolybotService-DynamoDB-tf')
+                table = dynamodb.Table('ehabo-PolybotService-DynamoDB')
                 logger.info({table})
                 table.put_item(Item=prediction_summary)
-                full_url = urljoin(TELEGRAM_APP_URL, 'results')
+                #full_url = urljoin(TELEGRAM_APP_URL, 'results')
+                full_url = "http://polybot-service-1:8443"
                 # Send the message from my yolo5 to load balancer:
                 try:
                     response = requests.post(f'{full_url}', params={'predictionId': prediction_id})
