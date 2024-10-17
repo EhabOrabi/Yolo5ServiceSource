@@ -1,4 +1,4 @@
-pipeline {
+pipelines/test.Jenkinsfilepipeline {
     agent any
 
     stages {
@@ -16,11 +16,13 @@ pipeline {
              }
             }
         }
+
         stage('Build and deploy to Test environment') {
             steps {
                 sh 'echo trigger build and deploy pipelines for test environment... wait until successful deployment'
             }
         }
+
         stage('Tests after build') {
             parallel {
               stage('Security vulnerabilities scanning') {
