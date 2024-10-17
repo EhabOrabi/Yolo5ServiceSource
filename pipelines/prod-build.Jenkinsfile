@@ -33,7 +33,6 @@ pipeline {
             }
         }
 
-
         stage('Build app container') {
             steps {
                 sh '''
@@ -43,10 +42,12 @@ pipeline {
                 '''
             }
         }
+
+
         stage('Trigger Deploy') {
             steps {
                 build job: 'yolo5DeployProd', wait: false, parameters: [
-                    string(name: 'SERVICE_NAME', value: "prd"),
+                    string(name: 'SERVICE_NAME', value: "prod"),
                     string(name: 'IMAGE_FULL_NAME_PARAM', value: "$DOCKER_USERNAME/$IMAGE_BASE_NAME:$IMAGE_TAG")
                 ]
             }
