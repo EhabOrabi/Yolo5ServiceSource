@@ -33,7 +33,6 @@ pipeline {
             }
         }
 
-
         stage('Build app container') {
             steps {
                 sh '''
@@ -43,7 +42,6 @@ pipeline {
                 '''
             }
         }
-
 
         stage('Trigger Deploy') {
             steps {
