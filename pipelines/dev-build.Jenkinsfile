@@ -41,6 +41,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Trigger Deploy') {
             steps {
                 build job: 'yolo5DeployDev', wait: false, parameters: [
