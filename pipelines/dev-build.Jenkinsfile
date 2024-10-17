@@ -15,7 +15,7 @@ pipeline {
 
     environment {
         IMAGE_TAG = "v1.0.$BUILD_NUMBER"
-        IMAGE_BASE_NAME = "yolo5_k8s_project_dev"
+        IMAGE_BASE_NAME = "yolo5_dev"
 
         DOCKER_CREDS = credentials('dockerhub')
         DOCKER_USERNAME = "${DOCKER_CREDS_USR}"  // The _USR suffix added to access the username value
@@ -44,7 +44,7 @@ pipeline {
         stage('Trigger Deploy') {
             steps {
                 build job: 'yolo5DeployDev', wait: false, parameters: [
-                    string(name: 'SERVICE_NAME', value: "yolo5DeployDev"),
+                    string(name: 'SERVICE_NAME', value: "dev"),
                     string(name: 'IMAGE_FULL_NAME_PARAM', value: "$DOCKER_USERNAME/$IMAGE_BASE_NAME:$IMAGE_TAG")
                 ]
             }
