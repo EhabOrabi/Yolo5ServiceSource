@@ -6,7 +6,7 @@ pipeline {
             parallel {
              stage('Unittest') {
                  steps {
-                     sh 'echo unittesting...'
+                     sh 'echo unittest...'
                  }
              }
              stage('Lint') {
@@ -27,7 +27,7 @@ pipeline {
             parallel {
               stage('Security vulnerabilities scanning') {
                     steps {
-                        sh 'echo scanning for vulnerabilities...'
+                        sh 'echo scanning for vulnerabilities...' \\ added by ehab
                     }
               }
               stage('API test') {
