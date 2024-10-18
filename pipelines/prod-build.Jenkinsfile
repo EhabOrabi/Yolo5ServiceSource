@@ -43,7 +43,6 @@ pipeline {
             }
         }
 
-
         stage('Trigger Deploy') {
             steps {
                 build job: 'yolo5DeployProd', wait: false, parameters: [
