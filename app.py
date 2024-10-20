@@ -14,10 +14,6 @@ from urllib.parse import urljoin
 images_bucket = os.environ['BUCKET_NAME']
 queue_name = os.environ['SQS_QUEUE_NAME']
 region_name = os.environ['REGION_NAME']
-TELEGRAM_APP_URL = os.environ['TELEGRAM_APP_URL']
-logger.info(f'TELEGRAM_APP_URL: {TELEGRAM_APP_URL}.')
-if TELEGRAM_APP_URL is None or TELEGRAM_APP_URL.strip() == "":
-    raise ValueError("TELEGRAM_APP_URL environment variable is not set or is empty.")
 
 sqs_client = boto3.client('sqs', region_name=region_name)
 

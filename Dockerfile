@@ -15,8 +15,8 @@ RUN curl -L https://github.com/ultralytics/yolov5/releases/download/v6.1/yolov5s
 COPY . .
 
 ENV BUCKET_NAME="ehaborabi-bucket"
-ENV TELEGRAM_APP_URL="https://ehabo-polybot-k8s-v1.int-devops.click"
-ENV SQS_QUEUE_URL="https://sqs.eu-west-3.amazonaws.com/019273956931/ehabo-PolybotServiceQueue-k8s"
+#ENV TELEGRAM_APP_URL="https://ehabo-polybot-k8s-v1.int-devops.click"
+#ENV SQS_QUEUE_URL="https://sqs.eu-west-3.amazonaws.com/019273956931/ehabo-PolybotServiceQueue-k8s"
 ENV SQS_QUEUE_NAME="ehabo-PolybotServiceQueue-k8s"
 ENV REGION_NAME="eu-west-3"
 ENV DB_NAME="ehabo-PolybotService-DynamoDB"
